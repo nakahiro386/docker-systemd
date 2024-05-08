@@ -9,6 +9,7 @@ systemdを有効化したdocker image
 * Oracle Linux 7
 * Oracle Linux 8
 * Ubuntu 22.04
+* Ubuntu 24.04
 
 ## 参考リンク
 * [centos - Official Image | Docker Hub](https://hub.docker.com/_/centos)
