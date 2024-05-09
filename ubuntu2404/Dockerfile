@@ -21,6 +21,8 @@ RUN set -x \
     iproute2 \
     sudo \
     openssh-server \
+    python3-minimal \
+    libpython3-stdlib \
  && apt-get clean -y -q \
  && rm -Rf /var/lib/apt/lists/* \
  && rm -f /etc/systemd/system/*.wants/* \
