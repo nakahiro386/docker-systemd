@@ -12,6 +12,8 @@ CMD ["/usr/lib/systemd/systemd", "--system"]
 STOPSIGNAL SIGRTMIN+3
 
 RUN set -x \
+ && sed -i -e 's/^mirrorlist/#mirrorlist/g' -e 's!#baseurl=http://mirror.centos.org/!baseurl=http://vault.centos.org/!g' /etc/yum.repos.d/CentOS-Base.repo \
+ && yum -q clean all \
  && yum makecache fast \
  && yum -y -q install deltarpm \
  && yum -y -q upgrade \
