@@ -14,6 +14,10 @@ x-base: &base
   privileged: true
   volumes:
     - /etc/localtime:/etc/localtime:ro
+    - /sys/fs/cgroup:/sys/fs/cgroup:rw
+  tmpfs:
+    - /tmp
+    - /run
   logging: &logging
     driver: json-file
     options:
@@ -31,11 +35,6 @@ services:
     hostname: *centos7
     ports:
       - "${CENTOS7_SSH_PORT:-2222}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
   &oraclelinux7 oraclelinux7-systemd: # {{{
@@ -47,11 +46,6 @@ services:
     hostname: *oraclelinux7
     ports:
       - "${ORACLELINUX7_SSH_PORT:-2223}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
   &oraclelinux8 oraclelinux8-systemd: # {{{
@@ -64,11 +58,6 @@ services:
     cgroup: host
     ports:
       - "${ORACLELINUX8_SSH_PORT:-2224}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
   &oraclelinux9 oraclelinux9-systemd: # {{{
@@ -81,11 +70,6 @@ services:
     cgroup: host
     ports:
       - "${ORACLELINUX9_SSH_PORT:-2225}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
   &ubuntu2204 ubuntu2204-systemd: # {{{
@@ -98,11 +82,6 @@ services:
     cgroup: host
     ports:
       - "${UBUNTU2204_SSH_PORT:-2226}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
   &ubuntu2404 ubuntu2404-systemd: # {{{
@@ -115,11 +94,6 @@ services:
     cgroup: host
     ports:
       - "${UBUNTU2404_SSH_PORT:-2227}:22"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /tmp
-      - /run
   #}}}
 
 # vim:set filetype=docker-compose expandtab shiftwidth=2 tabstop=2 foldmethod=marker:
