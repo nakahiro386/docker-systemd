@@ -1,4 +1,5 @@
 FROM docker.io/oraclelinux:7
+LABEL org.opencontainers.image.source=https://github.com/nakahiro386/docker-systemd
 
 # Detected virtualization docker
 ENV container=docker

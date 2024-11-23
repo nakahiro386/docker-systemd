@@ -1,4 +1,5 @@
 FROM docker.io/ubuntu:24.04
+LABEL org.opencontainers.image.source=https://github.com/nakahiro386/docker-systemd
 
 # Detected virtualization docker
 ENV container=docker
