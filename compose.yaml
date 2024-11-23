@@ -71,6 +71,23 @@ services:
       - /run
   #}}}
 
+  &oraclelinux9 oraclelinux9-systemd: # {{{
+    << : *base
+    build:
+      context: ./oraclelinux9
+    image: nakahiro386/oraclelinux9-systemd:latest
+    container_name: *oraclelinux9
+    hostname: *oraclelinux9
+    cgroup: host
+    ports:
+      - "${ORACLELINUX9_SSH_PORT:-2225}:22"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /tmp
+      - /run
+  #}}}
+
   &ubuntu2204 ubuntu2204-systemd: # {{{
     << : *base
     build:
@@ -80,7 +97,7 @@ services:
     hostname: *ubuntu2204
     cgroup: host
     ports:
-      - "${UBUNTU2204_SSH_PORT:-2225}:22"
+      - "${UBUNTU2204_SSH_PORT:-2226}:22"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     tmpfs:
@@ -97,7 +114,7 @@ services:
     hostname: *ubuntu2404
     cgroup: host
     ports:
-      - "${UBUNTU2404_SSH_PORT:-2226}:22"
+      - "${UBUNTU2404_SSH_PORT:-2227}:22"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     tmpfs:

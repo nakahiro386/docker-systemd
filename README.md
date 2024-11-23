@@ -8,6 +8,7 @@ systemdを有効化したdocker image
 * CentOS 7
 * Oracle Linux 7
 * Oracle Linux 8
+* Oracle Linux 9
 * Ubuntu 22.04
 * Ubuntu 24.04
 
